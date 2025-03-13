@@ -1,0 +1,549 @@
+:root {
+    /* Aktualizacja kolorów zgodnie z obecnym schematem */
+    --primary: #cac9c9;
+    --secondary: #008fc3;
+    --background: #0a0d11;
+    --text: #c5c5c5;
+    --accent: #008fc3(46, 100%, 50%, 0.678);
+    --card-bg: #63636330;;
+    --border: #00bbff85;
+    --color-name: #1E90FF; /* Kolor dla "Miłosz Strugarek" */
+    --color-title: #A9A9A9; /* Kolor dla "Technik mechatronik" */
+    --color-tag: #FFFFFF; /* Kolor dla tagów */
+    --color-tag-bg: #000000; /* Tło dla tagów */
+    --neon-color: #00bbff52; /* Ustaw kolor neonowy */
+    --project-tags: #00bbff;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Space Grotesk', sans-serif;
+    background-color: var(--background);
+    color: var(--text);
+    
+}
+
+
+/* Hero Section Enhancement */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 2rem;
+    
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin: 0;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Space Grotesk', monospace;
+}
+
+.hero h2 {
+    font-size: 2rem;
+    color: var(--accent);
+    margin: 1rem 0;
+
+}
+
+/* Specialty Tags */
+.specialty-tags {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.specialty-tags span {
+    padding: 0.5rem 1rem;
+    background: #008fc3(255, 230, 0, 0.1);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-size: 0.9rem;
+    color: var(--primary);
+}
+
+/* Jednolite tło */
+.circuit-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--background); /* Użyj zmiennej dla koloru tła */
+    z-index: 0;
+    background-image: none; /* Usuń wszelkie wzory */
+}
+
+/* Enhanced Project Cards */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4rem;
+    padding: 3rem;
+    max-width: 1800px;
+    margin: 0 auto;
+    justify-items: center;
+}
+
+.project-card {
+    width: 100%;
+    min-width: 260px;
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    margin: 1rem;
+    position: relative;
+    overflow: visible;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform-origin: center;
+    transform: scale(1);
+    z-index: 1;
+    cursor: pointer;
+}
+
+.project-card::after {
+    content: '';
+    position: absolute;
+    top: 15%;
+    left: 15%;
+    right: 15%;
+    bottom: 15%;
+    z-index: 1;
+}
+
+.project-card:hover {
+    transform: scale(1.08);
+    z-index: 2;
+    box-shadow: 0 15px 40px rgba(128, 128, 128, 0.1);
+    transition-delay: 0.3s;
+}
+
+.project-card:hover::after {
+    pointer-events: none;
+}
+
+.project-grid:hover .project-card:not(:hover) {
+    transform: scale(0.95);
+    opacity: 0.8;
+    transition-delay: 0.3s;
+}
+
+.project-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.project-content h4 {
+    margin: 0.5rem 0;
+}
+
+.project-image {
+    width: 60%;
+    height: 250px;
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.project-card:hover .project-image {
+    transform: scale(1.03);
+    transition-delay: 0.35s;
+}
+
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-top: 1rem;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.tech-stack span {
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border);
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.project-card:hover .tech-stack span {
+    background: rgba(201, 201, 201, 0.1);
+    border-color: var(--project-tags);
+    transform: scale(1.05);
+    transition-delay: 0.45s;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Navigation Styles */
+.main-nav {
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 30px;
+    padding: 0.3rem 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem auto;
+    max-width: fit-content;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    padding: 0;
+    margin: 0;
+}
+
+.main-nav ul li {
+    font-family: var(--font-primary);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--text);
+    transition: color 0.3s ease;
+}
+
+.main-nav ul li a {
+    text-decoration: none;
+    color: #FFFFFF;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    transition: color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Animacja kół zębatych tylko dla "Projekty" */
+.main-nav ul li a.projekty::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    transform-origin: right;
+}
+
+.main-nav ul li a.projekty:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.main-nav ul li a.projekty:hover {
+    color: var(--primary);
+}
+
+/* About Section */
+.about {
+    padding: 6rem 2rem 2rem;
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.about-description {
+    font-size: 1.2rem; /* Dostosowanie rozmiaru czcionki */
+    line-height: 2; /* Większa wysokość linii dla lepszej czytelności */
+    color: #008fc3; /* Kolor tekstu */
+    background-color: rgba(0, 0, 0, 0.267); /* Półprzezroczyste tło */
+    padding: 15px; /* Padding wewnętrzny */
+    border-radius: 8px; /* Zaokrąglone rogi */
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5); /* Cień dla efektu głębi */
+    margin-top: 10px; /* Odstęp od nagłówka */
+    text-align: center; /* Wyśrodkowanie tekstu */
+    font-family: var(--font-primary); /* Spójny font */
+    max-width: 800px; /* Maksymalna szerokość obiektu */
+    width: 90%; /* Szerokość obiektu */
+    margin-left: auto; /* Wyśrodkowanie obiektu */
+    margin-right: auto; /* Wyśrodkowanie obiektu */
+}
+
+/* Contact Section */
+.contact {
+    padding: 2rem;
+}
+
+.contact-content {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0.5rem auto;
+    padding: 0.5rem 1rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    width: 35%;
+    max-width: 600px;
+    text-align: center;
+    color: #FFFFFF;
+    transform: translateX(20px);
+    border: 2px solid var(--neon-color); /* Neonowa obramówka */
+    box-shadow: 0 0 10px var(--neon-color), 0 0 20px var(--neon-color); /* Neonowy efekt */
+}
+
+.contact-item i {
+    color: var(--primary);
+    font-size: 0.5rem;
+}
+
+.contact-item a {
+    color: var(--text);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-item a:hover {
+    color: var(--secondary);
+}
+
+/* Adjust existing sections for new layout */
+main {
+    padding-top: 60px; /* Space for fixed navigation */
+}
+
+section {
+    margin: 2rem 0;
+    padding: 2rem;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.section-icon {
+    width: 50px;
+    height: 50px;
+    animation: spin 8s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Dodatkowe style dla galerii i listy technologii */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    transition: transform 0.3s ease;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.02);
+}
+
+.project-tech ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.project-tech li {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+}
+
+.project-features ul li {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.project-features ul li::before {
+    content: '•';
+    color: var(--primary);
+    position: absolute;
+    left: 0;
+}
+
+/* Responsywność dla mniejszych ekranów */
+@media (max-width: 1600px) {
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 1000px) {
+    .project-grid {
+        grid-template-columns: 1fr;
+        max-width: 800px;
+    }
+}
+
+/* Reset opóźnień */
+.project-card,
+.project-card::before,
+.project-content,
+.project-image,
+.tech-stack span {
+    transition-delay: 0s;
+}
+
+/* Styl dla napisu "Miłosz Strugarek" */
+.header-container h1 {
+    font-family: var(--font-primary);
+    font-size: 4rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0;
+    color: #fbfbfb; /* Osobny kolor dla napisu */
+    position: relative;
+    z-index: 1;
+}
+
+/* Styl dla paska nawigacji */
+.main-nav {
+    background-color: rgba(87, 87, 87, 0.7);
+    border-radius: 30px;
+    padding: 0.3rem 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem auto;
+    max-width: fit-content;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+/* Styl dla elementów nawigacyjnych */
+.main-nav ul li a {
+    text-decoration: none;
+    color: #5da0b5;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    transition: color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.main-nav ul li a:hover {
+    color: var(--primary);
+}
+
+.centered-container {
+    display: flex;
+    flex-direction: column; /* Ustawienie kolumnowego układu */
+    align-items: center; /* Wyśrodkowanie elementów w poziomie */
+    justify-content: center; /* Wyśrodkowanie elementów w pionie */
+    width: 100%; /* Szerokość kontenera */
+    max-width: 800px; /* Maksymalna szerokość */
+    margin: 0 auto; /* Wyśrodkowanie kontenera */
+    padding: 1rem; /* Padding wewnętrzny */
+}
+
+.typewriter, .tech-accent, h2, h3 {
+    text-align: center; /* Wyśrodkowanie tekstu */
+    margin: 1rem 0; /* Marginesy między elementami */
+    font-size: 2.5rem;
+}
+
+.icon {
+    width: 35.5px; /* Szerokość ikony */
+    height: 26.625px; /* Wysokość ikony */
+    margin-right: 8px; /* Odstęp między ikoną a tekstem */
+    vertical-align: middle; /* Wyrównanie ikony do środka tekstu */
+}
+
+.icon2 {
+    width: 33.75px; /* Szerokość ikony */
+    height: 33px; /* Wysokość ikony */
+    margin-right: 8px; /* Odstęp między ikoną a tekstem */
+    vertical-align: middle; /* Wyrównanie ikony do środka tekstu */
+}
+
+.icon3 {
+    width: 34.13px; /* Szerokość ikony */
+    height: 34.13px; /* Wysokość ikony */
+    margin-right: 8px; /* Odstęp między ikoną a tekstem */
+    vertical-align: middle; /* Wyrównanie ikony do środka tekstu */
+}
+
+.construction-banner {
+    width: 100%;
+    background-color: rgba(255, 165, 0, 0.2);
+    color: #FFA500;
+    text-align: center;
+    padding: 10px;
+    position: relative; /* Zmiana z fixed na relative */
+    z-index: 1000;
+    font-weight: bold;
+    border-bottom: 2px solid #FFA500;
+    margin-bottom: 20px; /* Dodanie odstępu od następnych elementów */
+}
+
+/* Usuwamy margin-top z body, ponieważ nie jest już potrzebny */
+

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="construction-banner">
+        <p>Strona w trakcie prac wykończeniowych</p>
+    </div>
+    <div class="circuit-pattern"></div>
+    
+    <nav class="main-nav">
+        <ul>
+            <li><a href="#home">Strona główna</a></li>
+            <li><a href="#o-mnie">O mnie</a></li>
+            <li><a href="#skills">Umiejętności</a></li>
+            <li><a href="#projects">Projekty</a></li>
+            <li><a href="#contact">Kontakt</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="home">
+            <h1>Witaj na mojej stronie!</h1>
+            <p>Opis strony głównej...</p>
+        </section>
+
+        <section class="hero">
+            <div class="header-container">
+                <div class="header-background">
+                    <div class="background-image">
+                        <div id="home"></div>
+                        <h1>Miłosz Strugarek</h1>
+                    </div>
+                </div>
+                <h2>Technik mechatronik</h2>
+                <div class="specialty-tags">
+                    <span>Technologia</span>
+                    <span>IoT</span>
+                    <span>Elektronika</span>
+                </div>
+            </div>
+        </section>
+
+        <div class="sections">
+            <section id="o-mnie">
+                <h2>O mnie</h2>
+                <p class="about-description">Cześć, mam na imię Miłosz i aktualnie uczęszczam do technikum o profilu mechatronicznym. Interesuję się nowoczesnymi technologiami, automatyką oraz programowaniem, a swoją przyszłość wiążę z branżą mechatroniczną. Stale rozwijam swoje umiejętności i chętnie podejmuję nowe wyzwania, aby zdobywać praktyczne doświadczenie. Poszukuję możliwości nauki i pracy, które pozwolą mi doskonalić się w zawodzie i poszerzać swoją wiedzę. Jeśli masz propozycję współpracy – chętnie ją rozważę!</p>
+            </section>
+        </div>
+
+        <section id="skills" class="skills">
+            <h3 class="typewriter" data-text="< Umiejętności />"> Umiejętności </h3>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h4>Systemy Wbudowane</h4>
+                    <ul>
+                        <li>Układy mechatroniczne</li>
+                        <li>ESP32</li>
+                        <li>Arduino</li>
+                        <li>PLC</li>
+                        <li>Panele HMI</li>
+                    </ul>
+                </div>
+                <!-- Add more skill cards -->
+            </div>
+        </section>
+
+        <section id="projects" class="projects">
+            <div class="section-header">
+                <img src="gear-icon.png" alt="" class="section-icon">
+                <h3><span class="tech-accent"></span> Projekty <span class="tech-accent"></span></h3>
+            </div>
+            <div class="project-grid">
+                <!-- Robot Mobilny -->
+                <article class="project-card" onclick="window.location.href='projects/cnc-machine.html'">
+                    <div class="project-image">
+                        <div class="tech-overlay"></div>
+                        <img src="projekt_cnc.png" alt="Maszyna CNC">
+                    </div>
+                    <div class="project-content">
+                        <h4>Maszyna CNC</h4>
+                        <p>Projekt maszyna CNC do obróbki materiałów</p>
+                        <div class="tech-stack">
+                            <span>Arduino</span>
+                            <span>GRBL</span>
+                            <span>Fusion 360</span>
+                            <span>Mechanika</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Maszyna CNC -->
+                <article class="project-card" onclick="window.location.href='projects/mobile-robot.html-'">
+                    <div class="project-image">
+                        <div class="tech-overlay"></div>
+                        <img src="project2.jpg" alt="-">
+                    </div>
+                    <div class="project-content">
+                        <h4>-</h4>
+                        <p>-</p>
+                        <div class="tech-stack">
+                            <span>-</span>
+                            <span>-</span>
+                            <span>-</span>
+                            <span>-</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- System IoT -->
+                <article class="project-card" onclick="window.location.href='projects/iot-system.html-'">
+                    <div class="project-image">
+                        <div class="tech-overlay"></div>
+                        <img src="project3.jpg" alt="-">
+                    </div>
+                    <div class="project-content">
+                        <h4>-</h4>
+                        <p>-</p>
+                        <div class="tech-stack">
+                            <span>-</span>
+                            <span>-</span>
+                            <span>-</span>
+                            <span>-</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Inteligentna Szklarnia -->
+                <article class="project-card" onclick="window.location.href='projects/smart-greenhouse.html-'">
+                    <div class="project-image">
+                        <div class="tech-overlay"></div>
+                        <img src="project4.jpg" alt="-">
+                    </div>
+                    <div class="project-content">
+                        <h4>-</h4>
+                        <p>-</p>
+                        <div class="tech-stack">
+                            <span>-</span>
+                            <span>-</span>
+                            <span>-</span>
+                            <span>-</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- System Automatyki Domowej -->
+                <article class="project-card" onclick="window.location.href='projects/home-automation.html-'">
+                    <div class="project-image">
+                        <div class="tech-overlay"></div>
+                        <img src="project5.jpg" alt="-">
+                    </div>
+                    <div class="project-content">
+                        <h4>-</h4>
+                        <p>-</p>
+                        <div class="tech-stack">
+                            <span>-</span>
+                            <span>-</span>
+                            <span>-</span>
+                            <span>-</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- System Wizyjny AI -->
+                <article class="project-card" onclick="window.location.href='projects/vision-ai.html-'">
+                    <div class="project-image">
+                        <div class="tech-overlay"></div>
+                        <img src="project6.jpg" alt="-">
+                    </div>
+                    <div class="project-content">
+                        <h4>-</h4>
+                        <p>-</p>
+                        <div class="tech-stack">
+                            <span>-</span>
+                            <span>-</span>
+                            <span>-</span>
+                            <span>-</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <h3 class="typewriter" data-text="< Kontakt />"> Kontakt </h3>
+            <div class="contact-content tech-border">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:strugarekmilosz@gmail.com">Gmail    <img src="gmail-icon.png" alt="Gmail Icon" class="icon"></a></a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <a href="https://github.com/twojprofil" target="_blank">GitHub  <img src="github-icon.png" alt="Github Icon" class="icon2"></a></a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <a href="https://linkedin.com/in/twojprofil" target="_blank">LinkedIn   <img src="linkedin-icon.png" alt="LinkedIn Icon" class="icon3"></a></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
