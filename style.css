@@ -296,11 +296,9 @@ body {
 .about-description {
     font-size: 1.2rem; /* Dostosowanie rozmiaru czcionki */
     line-height: 2; /* Większa wysokość linii dla lepszej czytelności */
-    color: #008fc3; /* Kolor tekstu */
-    background-color: rgba(0, 0, 0, 0.267); /* Półprzezroczyste tło */
-    padding: 15px; /* Padding wewnętrzny */
-    border-radius: 8px; /* Zaokrąglone rogi */
-    box-shadow: 0 2px 20px #008fc3ac; /* Cień dla efektu głębi */
+    color: #c5c5c5; /* Kolor tekstu */
+    background-color: var(--background); /* Tło */
+    padding: 30px 20px; /* Padding wewnętrzny */
     margin-top: 10px; /* Odstęp od nagłówka */
     text-align: center; /* Wyśrodkowanie tekstu */
     font-family: var(--font-primary); /* Spójny font */
@@ -308,6 +306,46 @@ body {
     width: 90%; /* Szerokość obiektu */
     margin-left: auto; /* Wyśrodkowanie obiektu */
     margin-right: auto; /* Wyśrodkowanie obiektu */
+    position: relative; /* Pozycja względna dla pseudoelementów */
+    border-radius: 0; /* Usunięcie zaokrąglonych rogów */
+    box-shadow: none; /* Usunięcie cienia */
+}
+
+/* Usunięcie poprzednich pseudoelementów */
+.about-description::before,
+.about-description::after {
+    content: none;
+}
+
+/* Dodanie poziomych kresek */
+.about-description {
+    position: relative;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+/* Górna kreska */
+.about-description::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--neon-color), transparent);
+}
+
+/* Dolna kreska */
+.about-description::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--neon-color), transparent);
 }
 
 /* Contact Section */
@@ -566,8 +604,30 @@ section {
 
 .skills-grid {
     display: flex;
-    flex-direction: column; /* Ustawienie kolumnowego układu */
-    align-items: center; /* Wyśrodkowanie elementów w poziomie */
+    flex-direction: row; /* Zmiana z kolumnowego na poziomy układ */
+    justify-content: center; /* Wyśrodkowanie elementów w poziomie */
+    gap: 2rem; /* Dodanie odstępu między kartami */
+    flex-wrap: wrap; /* Zawijanie na mniejszych ekranach */
+}
+
+/* Dodanie stylów dla kart umiejętności */
+.skill-card {
+    flex: 1; /* Elastyczne rozciąganie */
+    min-width: 300px; /* Minimalna szerokość karty */
+    max-width: 500px; /* Maksymalna szerokość karty */
+    padding: 2rem; /* Zwiększony wewnętrzny odstęp z 1.5rem na 2rem */
+    background-color: var(--card-bg); /* Tło karty */
+    border-radius: 10px; /* Zaokrąglone rogi */
+    border: 1px solid var(--border); /* Obramowanie */
+    margin: 1rem; /* Zewnętrzny odstęp */
+    box-shadow: 0 4px 15px rgba(0, 191, 255, 0.1), 0 0 20px rgba(0, 191, 255, 0.05); /* Delikatny cień z lekkim efektem neonowym */
+    transition: box-shadow 0.3s ease, transform 0.3s ease; /* Płynne przejście dla efektów hover */
+}
+
+/* Dodanie efektu hover dla kart umiejętności */
+.skill-card:hover {
+    box-shadow: 0 6px 20px rgba(0, 191, 255, 0.15), 0 0 30px rgba(0, 191, 255, 0.1); /* Wzmocniony cień przy najechaniu */
+    transform: translateY(-3px); /* Delikatne uniesienie karty */
 }
 
 /* Powiększenie nagłówka Systemy Wbudowane */
@@ -580,16 +640,29 @@ section {
 
 .skill-card ul {
     list-style-type: disc; /* Ustawienie kropkowanej listy */
-    padding-left: 0; /* Usunięcie odstępu od lewej */
-    margin: 0; /* Usunięcie domyślnego marginesu */
+    padding-left: 1.5rem; /* Zwiększenie odstępu od lewej krawędzi */
+    margin: 0.5rem 1rem 0.5rem 1rem; /* Dodanie marginesów z każdej strony */
+    /* Kolejność: góra, prawo, dół, lewo */
 }
 
 .skill-card li {
     text-align: left; /* Wyrównanie tekstu do lewej */
-    padding-left: 1.2em; /* Dodanie odstępu dla kropki */
-    margin: 0.5rem 0; /* Zwiększony odstęp między elementami listy */
+    padding-left: 0.5em; /* Zmniejszenie odstępu dla kropki, bo już mamy padding w ul */
+    margin: 0.8rem 0; /* Zwiększony odstęp między elementami listy */
     font-size: 1.3rem; /* Powiększony rozmiar czcionki dla elementów listy */
     font-weight: 500; /* Lekkie pogrubienie dla lepszej czytelności */
+}
+
+/* Dodanie dodatkowego paddingu dla całej karty */
+.skill-card {
+    flex: 1; /* Elastyczne rozciąganie */
+    min-width: 300px; /* Minimalna szerokość karty */
+    max-width: 500px; /* Maksymalna szerokość karty */
+    padding: 2rem; /* Zwiększony wewnętrzny odstęp z 1.5rem na 2rem */
+    background-color: var(--card-bg); /* Tło karty */
+    border-radius: 10px; /* Zaokrąglone rogi */
+    border: 1px solid var(--border); /* Obramowanie */
+    margin: 1rem; /* Zewnętrzny odstęp */
 }
 
 /* */
