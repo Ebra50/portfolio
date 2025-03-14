@@ -101,7 +101,7 @@ let scrollTimeout;
 window.addEventListener('scroll', function() {
     clearTimeout(scrollTimeout);
     scrollTimeout = setTimeout(function() {
-        if (Math.random() > 0.5) { // 50% szans na utworzenie nowego sześciokąta
+        if (typeof createHexagon === 'function' && Math.random() > 0.5) {
             createHexagon();
         }
     }, 100);
@@ -116,4 +116,92 @@ window.addEventListener('resize', function() {
         hexagon.style.left = `${randomX}px`;
         hexagon.style.top = `${randomY}px`;
     });
+});
+
+// Inicjalizacja nawigacji
+document.addEventListener('DOMContentLoaded', function() {
+    // Pobierz wszystkie linki nawigacyjne
+    const navLinks = document.querySelectorAll('.main-nav ul li a');
+    
+    // Pobierz wszystkie sekcje które mają ID i są powiązane z linkami nawigacyjnymi
+    const sections = [];
+    
+    // Mapowanie linków do ich targetów
+    navLinks.forEach(link => {
+        const targetId = link.getAttribute('href').substring(1);
+        const targetSection = document.getElementById(targetId);
+        if (targetSection) {
+            sections.push(targetSection);
+        }
+    });
+    
+    // Ustawienie pierwszego linka jako aktywnego na początku
+    if (navLinks.length > 0) {
+        navLinks[0].classList.add('active');
+    }
+    
+    // Ustawienia dla IntersectionObserver
+    const observerOptions = {
+        root: null, // viewport
+        rootMargin: '-20% 0px -70% 0px', // marginesy wokół viewportu
+        threshold: 0 // procent widoczności elementu
+    };
+    
+    // Funkcja wywoływana kiedy elementy wchodzą/wychodzą z viewportu
+    const observerCallback = (entries) => {
+        entries.forEach(entry => {
+            // Jeśli element jest widoczny
+            if (entry.isIntersecting) {
+                // Znajdź ID sekcji
+                const id = entry.target.getAttribute('id');
+                
+                // Usuń klasę active ze wszystkich linków
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                });
+                
+                // Dodaj klasę active do odpowiedniego linku
+                const activeLink = document.querySelector(`.main-nav ul li a[href="#${id}"]`);
+                if (activeLink) {
+                    activeLink.classList.add('active');
+                }
+            }
+        });
+    };
+    
+    // Utwórz obserwator
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    
+    // Obserwuj wszystkie sekcje
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+    
+    // Obsługa kliknięć w linki nawigacyjne
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href').substring(1);
+            const targetSection = document.getElementById(targetId);
+            
+            if (targetSection) {
+                // Przewiń do sekcji
+                window.scrollTo({
+                    top: targetSection.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+                
+                // Zaktualizuj aktywny link natychmiast
+                navLinks.forEach(link => link.classList.remove('active'));
+                this.classList.add('active');
+            }
+        });
+    });
+    
+    // Funkcja do tworzenia sześciokątów (aby zachować kompatybilność z istniejącym kodem)
+    window.createHexagon = function() {
+        // Jeśli funkcja nie jest używana, to będzie pusta implementacja aby uniknąć błędów
+        console.log("Hexagon creation not implemented");
+    };
 }); 
