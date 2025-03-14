@@ -316,47 +316,83 @@ body {
 }
 
 .contact-content {
-    max-width: 600px;
+    max-width: 1000px; /* Zwiększona szerokość dla poziomego układu */
     margin: 0 auto;
     padding: 2rem;
 }
 
 .contact-info {
     display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+    flex-direction: row; /* Upewnienie się, że elementy są w układzie poziomym */
+    justify-content: center; /* Zmiana z space-around na center dla bliższego ułożenia */
+    align-items: center;
+    gap: 1rem; /* Zmniejszony odstęp z 2rem na 1rem */
+    flex-wrap: wrap; /* Zawijanie na mniejszych ekranach */
+    width: 100%; /* Pełna szerokość kontenera */
 }
 
 .contact-item {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0.5rem auto;
-    padding: 0.5rem 1rem;
+    margin: 0;
+    padding: 0.8rem 1.5rem;
     background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 5px;
-    width: 35%;
-    max-width: 600px;
+    border-radius: 8px;
+    width: auto; /* Szerokość dopasowana do zawartości */
+    min-width: 180px; /* Minimalna szerokość */
+    flex: 0 1 auto; /* Zapobiega rozciąganiu elementów */
     text-align: center;
     color: #FFFFFF;
-    transform: translateX(20px);
-    border: 2px solid var(--neon-color); /* Neonowa obramówka */
-    box-shadow: 0 0 10px var(--neon-color), 0 0 20px var(--neon-color); /* Neonowy efekt */
+    border: 2px solid var(--neon-color);
+    box-shadow: 0 0 10px var(--neon-color), 0 0 20px var(--neon-color);
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+    transform: translateY(-5px); /* Efekt unoszenia przy najechaniu */
+    box-shadow: 0 0 15px var(--neon-color), 0 0 30px var(--neon-color);
 }
 
 .contact-item i {
     color: var(--primary);
     font-size: 0.5rem;
+    margin-right: 0.5rem;
 }
 
 .contact-item a {
     color: var(--text);
     text-decoration: none;
     transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .contact-item a:hover {
     color: var(--secondary);
+}
+
+/* Style dla ikon w sekcji kontaktowej */
+.contact-item img {
+    opacity: 0.8; /* Ustawienie przezroczystości dla wszystkich ikon */
+    transition: opacity 0.3s ease;
+}
+
+.contact-item:hover img {
+    opacity: 1; /* Pełna nieprzezroczystość przy najechaniu */
+}
+
+/* Style dla kontenerów kontaktowych przy małych ekranach */
+@media (max-width: 768px) {
+    .contact-info {
+        flex-direction: column; /* Na małych ekranach układ pionowy */
+        gap: 1rem; /* Mniejszy odstęp */
+    }
+    
+    .contact-item {
+        width: 80%; /* Większa szerokość na małych ekranach */
+    }
 }
 
 /* Adjust existing sections for new layout */
