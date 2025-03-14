@@ -653,17 +653,57 @@ section {
     font-weight: 500; /* Lekkie pogrubienie dla lepszej czytelności */
 }
 
-/* Dodanie dodatkowego paddingu dla całej karty */
-.skill-card {
+/* Dodatkowe styles dla karty Mechanika - te same efekty co dla innych kart */
+.skill-card.mechanics {
+    display: block; /* Upewnienie się, że karta jest widoczna */
     flex: 1; /* Elastyczne rozciąganie */
     min-width: 300px; /* Minimalna szerokość karty */
     max-width: 500px; /* Maksymalna szerokość karty */
-    padding: 2rem; /* Zwiększony wewnętrzny odstęp z 1.5rem na 2rem */
+    padding: 2rem; /* Zwiększony wewnętrzny odstęp */
     background-color: var(--card-bg); /* Tło karty */
     border-radius: 10px; /* Zaokrąglone rogi */
     border: 1px solid var(--border); /* Obramowanie */
     margin: 1rem; /* Zewnętrzny odstęp */
+    box-shadow: 0 4px 15px rgba(0, 191, 255, 0.1), 0 0 20px rgba(0, 191, 255, 0.05); /* Delikatny cień z lekkim efektem neonowym */
+    transition: box-shadow 0.3s ease, transform 0.3s ease; /* Płynne przejście dla efektów hover */
 }
 
-/* */
+.skill-card.mechanics:hover {
+    box-shadow: 0 6px 20px rgba(0, 191, 255, 0.15), 0 0 30px rgba(0, 191, 255, 0.1); /* Wzmocniony cień przy najechaniu */
+    transform: translateY(-3px); /* Delikatne uniesienie karty */
+}
+
+.skill-card.mechanics h4 {
+    font-size: 1.8rem; /* Powiększony rozmiar czcionki */
+    margin: 1rem 0;
+    color: var(--secondary); /* Wyróżnienie kolorem */
+    font-weight: 600; /* Pogrubienie */
+}
+
+/* Style dla karty Software */
+.skill-card.software {
+    display: block; /* Upewnienie się, że karta jest widoczna */
+    flex: 1; /* Elastyczne rozciąganie */
+    min-width: 300px; /* Minimalna szerokość karty */
+    max-width: 500px; /* Maksymalna szerokość karty */
+    padding: 2rem; /* Zwiększony wewnętrzny odstęp */
+    background-color: var(--card-bg); /* Tło karty */
+    border-radius: 10px; /* Zaokrąglone rogi */
+    border: 1px solid var(--border); /* Obramowanie */
+    margin: 1rem; /* Zewnętrzny odstęp */
+    box-shadow: 0 4px 15px rgba(0, 191, 255, 0.1), 0 0 20px rgba(0, 191, 255, 0.05); /* Delikatny cień z lekkim efektem neonowym */
+    transition: box-shadow 0.3s ease, transform 0.3s ease; /* Płynne przejście dla efektów hover */
+}
+
+.skill-card.software:hover {
+    box-shadow: 0 6px 20px rgba(0, 191, 255, 0.15), 0 0 30px rgba(0, 191, 255, 0.1); /* Wzmocniony cień przy najechaniu */
+    transform: translateY(-3px); /* Delikatne uniesienie karty */
+}
+
+.skill-card.software h4 {
+    font-size: 1.8rem; /* Powiększony rozmiar czcionki */
+    margin: 1rem 0;
+    color: var(--secondary); /* Wyróżnienie kolorem */
+    font-weight: 600; /* Pogrubienie */
+}
 
